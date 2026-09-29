@@ -1,0 +1,32 @@
+{
+	"schemaVersion": 1,
+	"id": "coordinate-hud",
+	"version": "${version}",
+	"name": "Coordinate HUD",
+	"description": "A lightweight, no-minimap HUD bar: facing direction, bearing in degrees, block coordinates, and distance to world spawn. AI-assisted development (disclosed). Client-side only, no automation, no network calls.",
+	"authors": [
+		"Hullspark"
+	],
+	"contact": {
+		"homepage": "https://github.com/hullspark/minecraft-mods",
+		"issues": "https://github.com/hullspark/minecraft-mods/issues",
+		"sources": "https://github.com/hullspark/minecraft-mods"
+	},
+	"license": "MIT",
+	"icon": "assets/coordinatehud/icon.png",
+	"environment": "client",
+	"entrypoints": {
+		"client": [
+			"com.hullspark.coordinatehud.client.CoordinateHudClient"
+		]
+	},
+	"mixins": [
+		"coordinate-hud.client.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.19.5",
+		"minecraft": "~1.21.11",
+		"java": ">=21",
+		"fabric-api": "*"
+	}
+}

@@ -1,0 +1,32 @@
+{
+	"schemaVersion": 1,
+	"id": "death-point-marker",
+	"version": "${version}",
+	"name": "Death Point Marker",
+	"description": "Shows a HUD bar with bearing, distance and coordinates back to your last death point, so you can walk back and recover your items. Client-side only, no automation, no network calls. AI-assisted development (disclosed).",
+	"authors": [
+		"Hullspark"
+	],
+	"contact": {
+		"homepage": "https://github.com/hullspark/minecraft-mods",
+		"issues": "https://github.com/hullspark/minecraft-mods/issues",
+		"sources": "https://github.com/hullspark/minecraft-mods"
+	},
+	"license": "MIT",
+	"icon": "assets/deathpointmarker/icon.png",
+	"environment": "client",
+	"entrypoints": {
+		"client": [
+			"com.hullspark.deathpointmarker.client.DeathPointMarkerClient"
+		]
+	},
+	"mixins": [
+		"death-point-marker.client.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.19.5",
+		"minecraft": "~1.21.11",
+		"java": ">=21",
+		"fabric-api": "*"
+	}
+}

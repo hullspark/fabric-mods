@@ -1,0 +1,12 @@
+{
+	"required": true,
+	"minVersion": "0.8",
+	"package": "com.hullspark.coordinatehud.client.mixin",
+	"compatibilityLevel": "JAVA_21",
+	"client": [
+		"BossBarHudAccessor"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}

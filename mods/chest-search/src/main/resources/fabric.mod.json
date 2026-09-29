@@ -1,0 +1,32 @@
+{
+	"schemaVersion": 1,
+	"id": "chest-search",
+	"version": "${version}",
+	"name": "Chest Search",
+	"description": "Adds a Ctrl+F search box to chests, barrels, shulker boxes and other vanilla container screens. Matching item stacks are highlighted, non-matching ones are dimmed. Client-side only, no automation, no network calls. AI-assisted development (disclosed).",
+	"authors": [
+		"Hullspark"
+	],
+	"contact": {
+		"homepage": "https://github.com/hullspark/minecraft-mods",
+		"issues": "https://github.com/hullspark/minecraft-mods/issues",
+		"sources": "https://github.com/hullspark/minecraft-mods"
+	},
+	"license": "MIT",
+	"icon": "assets/chestsearch/icon.png",
+	"environment": "client",
+	"entrypoints": {
+		"client": [
+			"com.hullspark.chestsearch.client.ChestSearchClient"
+		]
+	},
+	"mixins": [
+		"chest-search.client.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.19.5",
+		"minecraft": "~1.21.11",
+		"java": ">=21",
+		"fabric-api": "*"
+	}
+}

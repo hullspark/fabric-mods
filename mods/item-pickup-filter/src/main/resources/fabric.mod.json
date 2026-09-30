@@ -1,0 +1,31 @@
+{
+	"schemaVersion": 1,
+	"id": "item-pickup-filter",
+	"version": "${version}",
+	"name": "Item Pickup Filter",
+	"description": "Stops configured items (rotten flesh, poisonous potatoes, spider eyes by default) from being auto-picked-up, so your inventory doesn't fill with junk. Edit the config file to change the list. Filtering happens wherever world logic runs: the integrated server in singleplayer, or a dedicated server that has this mod installed. AI-assisted development (disclosed).",
+	"authors": [
+		"Hullspark"
+	],
+	"contact": {
+		"homepage": "https://github.com/hullspark/minecraft-mods",
+		"issues": "https://github.com/hullspark/minecraft-mods/issues",
+		"sources": "https://github.com/hullspark/minecraft-mods"
+	},
+	"license": "MIT",
+	"icon": "assets/itempickupfilter/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.hullspark.itempickupfilter.ItemPickupFilterMod"
+		]
+	},
+	"mixins": [
+		"item-pickup-filter.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.19.5",
+		"minecraft": "~1.21.11",
+		"java": ">=21"
+	}
+}

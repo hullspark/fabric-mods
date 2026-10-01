@@ -1,0 +1,29 @@
+{
+	"schemaVersion": 1,
+	"id": "death-log",
+	"version": "${version}",
+	"name": "Death Log",
+	"description": "Keeps a per-player history of your last deaths (when, where, and the vanilla death message) and lets you review it with /deathlog. Works wherever world logic runs: the integrated server in singleplayer, or a dedicated server that has this mod installed. No automation, no network calls. AI-assisted development (disclosed).",
+	"authors": [
+		"Hullspark"
+	],
+	"contact": {
+		"homepage": "https://github.com/hullspark/minecraft-mods",
+		"issues": "https://github.com/hullspark/minecraft-mods/issues",
+		"sources": "https://github.com/hullspark/minecraft-mods"
+	},
+	"license": "MIT",
+	"icon": "assets/deathlog/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.hullspark.deathlog.DeathLogMod"
+		]
+	},
+	"depends": {
+		"fabricloader": ">=0.19.5",
+		"minecraft": "~1.21.11",
+		"java": ">=21",
+		"fabric-api": "*"
+	}
+}

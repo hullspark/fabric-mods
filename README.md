@@ -9,8 +9,9 @@ Small quality-of-life mods for Minecraft Java Edition (Fabric). One mod, one job
 | [Death Point Marker](mods/death-point-marker) | 0.1.2 / 0.1.2+mc26.3 (Minecraft 26.3, source in `mods/death-point-marker/mc26.3/`) | After you die, shows bearing, distance and coordinates back to where you died. | [CurseForge](https://www.curseforge.com/minecraft/mc-mods/death-point-marker) |
 | [Hullspark Chest Search](mods/chest-search) | 0.1.2 | Press Ctrl+F in any container to find items by name or id. | [CurseForge](https://www.curseforge.com/minecraft/mc-mods/hullspark-chest-search) |
 | [Hullspark Item Pickup Filter](mods/item-pickup-filter) | 0.1.0 | Items on a blacklist (default: rotten flesh, poisonous potato, spider eye) are never auto-picked-up. Server-side; singleplayer works out of the box. | [CurseForge](https://www.curseforge.com/minecraft/mc-mods/hullspark-item-pickup-filter) |
+| [Hullspark Death Log](mods/death-log) | 0.1.2 | /deathlog lists your last deaths (time, dimension, coordinates, vanilla death message), newest first. Server-side; needs Fabric API. | [CurseForge](https://www.curseforge.com/minecraft/mc-mods/hullspark-death-log) |
 
-All mods target **Minecraft 1.21.11** and need **Fabric Loader 0.19.5 or newer**. Where the table lists a second version, that mod also has a build for a newer Minecraft (same features, verified in-game on that version; Java 25 to build it). The first four are client-side and need **Fabric API**; Item Pickup Filter runs on the side that owns the world (singleplayer, or the dedicated server) and does not need Fabric API.
+All mods target **Minecraft 1.21.11** and need **Fabric Loader 0.19.5 or newer**. Where the table lists a second version, that mod also has a build for a newer Minecraft (same features, verified in-game on that version; Java 25 to build it). The first four are client-side and need **Fabric API**; Item Pickup Filter and Death Log run on the side that owns the world (singleplayer, or the dedicated server). Death Log needs Fabric API; Item Pickup Filter does not.
 They do not collect or send any data.
 
 ## Screenshots
@@ -36,6 +37,10 @@ They do not collect or send any data.
 ### Hullspark Item Pickup Filter
 
 ![Hullspark Item Pickup Filter](media/item-pickup-filter-1.png)
+
+### Hullspark Death Log
+
+![Hullspark Death Log](media/death-log-1.png)
 
 ## Install
 

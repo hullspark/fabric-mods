@@ -6,7 +6,7 @@ import net.fabricmc.fabric.api.client.rendering.v1.hud.HudElement;
 import net.fabricmc.fabric.api.client.rendering.v1.hud.HudElementRegistry;
 import net.minecraft.client.DeltaTracker;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.components.BossHealthOverlay;
 import net.minecraft.client.gui.screens.ChatScreen;
 import net.minecraft.core.BlockPos;
@@ -84,17 +84,18 @@ public final class DeathPointMarkerRenderer implements HudElement {
 	}
 
 	@Override
-	public void render(GuiGraphics context, DeltaTracker tickCounter) {
+	public void extractRenderState(GuiGraphicsExtractor context, DeltaTracker tickCounter) {
 		Minecraft client = Minecraft.getInstance();
 		Player player = client.player;
 		Level world = client.level;
-		if (player == null || world == null || client.options.hideGui) {
+		if (player == null || world == null || client.gui.hud.isHidden()) {
 			return;
 		}
 		// Hide behind any open screen (chest, inventory, death, menus, ...)
 		// so the line doesn't draw over GUI content; ChatScreen is exempted
 		// so coordinates stay visible while typing.
-		if (client.screen != null && !(client.screen instanceof ChatScreen)) {
+		var screen = client.gui.screen();
+		if (screen != null && !(screen instanceof ChatScreen)) {
 			return;
 		}
 
@@ -164,7 +165,7 @@ public final class DeathPointMarkerRenderer implements HudElement {
 		}
 
 		context.fill(x - 4, y - 2, x + textWidth + 4, y + client.font.lineHeight + 2, BACKGROUND_ARGB);
-		context.drawString(client.font, line, x, y, TEXT_COLOR);
+		context.text(client.font, line, x, y, TEXT_COLOR);
 	}
 
 	/**
@@ -207,8 +208,8 @@ public final class DeathPointMarkerRenderer implements HudElement {
 	 * this line further than necessary for bars that never actually get
 	 * drawn.
 	 */
-	private static int countVisibleBossBars(Minecraft client, GuiGraphics context) {
-		BossHealthOverlay bossBarHud = client.gui.getBossOverlay();
+	private static int countVisibleBossBars(Minecraft client, GuiGraphicsExtractor context) {
+		BossHealthOverlay bossBarHud = client.gui.hud.getBossOverlay();
 		int total = ((BossBarHudAccessor) bossBarHud).deathpointmarker$getBossBars().size();
 		int cutoff = context.guiHeight() / 3;
 		int y = BOSS_BAR_FIRST_Y;

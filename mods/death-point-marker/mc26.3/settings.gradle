@@ -1,0 +1,19 @@
+pluginManagement {
+	repositories {
+		maven {
+			name = "Fabric"
+			url = "https://maven.fabricmc.net/"
+		}
+		mavenCentral()
+		gradlePluginPortal()
+	}
+}
+
+plugins {
+	// Lets Gradle auto-provision/select a Java 25 toolchain on any machine
+	// (CI, the owner's PC) instead of relying on a sandbox-only
+	// org.gradle.java.home path. Loom 1.18.2 itself requires a Java 25 JVM.
+	id 'org.gradle.toolchains.foojay-resolver-convention' version '1.0.0'
+}
+
+rootProject.name = "death-point-marker-mc26.3"

@@ -1,5 +1,5 @@
 plugins {
-	id 'fabric-loom' version '1.17.21'
+	id 'net.fabricmc.fabric-loom' version '1.18.2'
 	id 'maven-publish'
 }
 
@@ -30,10 +30,12 @@ loom {
 }
 
 dependencies {
+	// 26.x ships unobfuscated: no mappings dependency, and mod dependencies
+	// use the plain (non-"mod"-prefixed) configurations since Loom no
+	// longer remaps anything in this mode.
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
-	mappings loom.officialMojangMappings()
-	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
-	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+	implementation "net.fabricmc:fabric-loader:${project.loader_version}"
+	implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
 	testImplementation "org.junit.jupiter:junit-jupiter:5.10.2"
 	testRuntimeOnly "org.junit.platform:junit-platform-launcher"
@@ -51,18 +53,14 @@ processResources {
 	}
 }
 
-tasks.withType(JavaCompile).configureEach {
-	it.options.release = 21
-}
-
 java {
 	withSourcesJar()
-	sourceCompatibility = JavaVersion.VERSION_21
-	targetCompatibility = JavaVersion.VERSION_21
+	sourceCompatibility = JavaVersion.VERSION_25
+	targetCompatibility = JavaVersion.VERSION_25
 }
 
 jar {
-	from("LICENSE") {
+	from("../LICENSE") {
 		rename { "${it}_${project.base.archivesName.get()}" }
 	}
 }
